@@ -3,10 +3,12 @@ package model;
 public class Cliente {
     private String id;
     private String name;
+    private String email;
     private char tipoPessoa;
 
-    public Cliente(String name, char tipoPessoa) {
+    public Cliente(String name, String email,char tipoPessoa) {
         this.name = name;
+        this.email = email;
         this.tipoPessoa = tipoPessoa;
     }
 
@@ -26,11 +28,28 @@ public class Cliente {
         this.name = name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public char getTipoPessoa() {
         return tipoPessoa;
     }
 
     public void setTipoPessoa(char tipoPessoa) {
         this.tipoPessoa = tipoPessoa;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", tipoPessoa=" + tipoPessoa +
+                '}';
     }
 }
