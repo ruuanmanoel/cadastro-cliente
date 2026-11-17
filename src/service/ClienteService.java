@@ -1,6 +1,6 @@
 package service;
 
-import Repository.ClienteRepository;
+import repository.ClienteRepository;
 import model.Cliente;
 
 import java.util.List;
@@ -10,9 +10,24 @@ public class ClienteService {
 
     private ClienteRepository clienteRepository = new ClienteRepository();
 
-    public void cadastrar(String name, String email, char tipoPessoa ) {
+    public void cadastrar(String nome, String email, char tipoPessoa) {
         String id = String.valueOf(UUID.randomUUID());
-        Cliente cliente = new Cliente(id, name, email, tipoPessoa);
+
+        // Não aceita nome em branco.
+        if (nome.isBlank()) {
+            throw new RuntimeException("O campo nome não pode estar vazio.");
+        }
+
+        // Não aceita email em branco e nem sem arroba.
+        if (email.isBlank() && !email.contains("@")) {
+            throw new RuntimeException("O campo email não está preechido corretamente.");
+        }
+        // Valida tipo de pessoa
+        if (tipoPessoa != 'F' && tipoPessoa != 'J') {
+            throw new RuntimeException("Tipo de pessoa deve ser Fisica ou Juridica.");
+        }
+
+        Cliente cliente = new Cliente(id, nome, email, tipoPessoa);
 
         clienteRepository.salvar(cliente);
     }
