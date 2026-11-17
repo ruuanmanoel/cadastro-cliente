@@ -25,4 +25,7 @@ public class ClienteService {
         return clienteRepository.buscarPorId(id);
     }
 
+    public void deletarCliente(String id) {
+        clienteRepository.deletar(id);
+    }
 }

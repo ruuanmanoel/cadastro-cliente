@@ -27,4 +27,8 @@ public class ClienteRepository {
 
         return null;
     }
+
+    public void deletar(String id) {
+        Database.clientes.removeIf(cliente -> cliente.getId().equals(id));
+    }
 }
