@@ -6,7 +6,8 @@ public class Cliente {
     private String email;
     private char tipoPessoa;
 
-    public Cliente(String name, String email,char tipoPessoa) {
+    public Cliente(String id, String name, String email,char tipoPessoa) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.tipoPessoa = tipoPessoa;
@@ -47,7 +48,8 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "name='" + name + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", tipoPessoa=" + tipoPessoa +
                 '}';
